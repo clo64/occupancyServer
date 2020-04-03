@@ -31,12 +31,19 @@ router.get('/', (req, res) => {
 //@desc  POST thermal data to mongo
 //@access Public
 router.post('/', (req, res) => {
+    if(req.body.CreateNew == "1"){
     const newThermalData = new Thermal({
         RoomNumber: req.body.RoomNumber,
         Floor: req.body.Floor,
         NumberOccupants: req.body.NumberOccupants
-    });
-newThermalData.save().then(item => res.json(item));
-})
+    })
+    newThermalData.save().then(item => res.json(item));
+    }
+    else{
+    Thermal.updateOne({RoomNumber: req.body.RoomNumber, Floor: req.body.RoomNumber},{
+        NumberOccupants: req.body.NumberOccupants
+    }).then(therm => res.json(therm))
+    }
+});
 
 module.exports = router;
