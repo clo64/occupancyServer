@@ -46,8 +46,8 @@ router.post('/', (req, res) => {
     newThermalData.save().then(item => res.json(item));
     }
     else{
-    Thermal.updateOne({RoomNumber: req.body.RoomNumber, Floor: req.body.RoomNumber},{
-        NumberOccupants: req.body.NumberOccupants
+    Thermal.updateOne({RoomNumber: req.body.Room_Number, Floor: req.body.Floor},{
+        Number_Occupants: req.body.Number_Occupants
     }).then(therm => res.json(therm))
     }
 });
