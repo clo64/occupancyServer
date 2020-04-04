@@ -10,9 +10,9 @@ API JSON Layout:
    of interest.
    GET API JSON layout
    {
-	"RoomNumber": "3",
+	"Room_Number": "3",
 	"Floor": "1",
-	"NumberOccupants": "4",
+	"Number_Occupants": "4",
 	"All": "0",
     "CreateNew": "0"
    }
@@ -25,9 +25,9 @@ API JSON Layout:
    floor combination.
    POST API JSON Layout
    {
-	"RoomNumber": "3",
+	"Room_Number": "3",
 	"Floor": "1",
-	"NumberOccupants": "4",
+	"Number_Occupants": "4",
 	"All": "0",
    "CreateNew": "0"
    }

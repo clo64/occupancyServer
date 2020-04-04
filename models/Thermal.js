@@ -3,13 +3,13 @@ const Schema = mongoose.Schema;
 
 //Create Schema
 const ThermalSchema = new Schema({
-    RoomNumber: {
+    Room_Number: {
         type: String
     },
     Floor: {
         type: String
     },
-    NumberOccupants: {
+    Number_Occupants: {
         type: String
     }
 });

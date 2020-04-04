@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
         .then(thermalData => res.json(thermalData))
     }
     else{
-        Thermal.find({RoomNumber: req.body.RoomNumber, Floor: req.body.Floor})
+        Thermal.find({Room_Number: req.body.Room_Number, Floor: req.body.Floor})
         .then(thermalData => 
             {
                 if(!thermalData.length){
@@ -39,9 +39,9 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     if(req.body.CreateNew == "1"){
     const newThermalData = new Thermal({
-        RoomNumber: req.body.RoomNumber,
+        Room_Number: req.body.RoomNumber,
         Floor: req.body.Floor,
-        NumberOccupants: req.body.NumberOccupants
+        Number_Occupants: req.body.NumberOccupants
     })
     newThermalData.save().then(item => res.json(item));
     }
