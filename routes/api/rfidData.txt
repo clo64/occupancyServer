@@ -1,0 +1,17 @@
+How to use the rfid data API:
+API JSON Layout:
+
+1. Accepts POST containing an RFID tag number, a Room Number and a Floor Number.
+   The function performs a .find on the Room database to locate the Room on the 
+   Floor in question. It then loads the Occupants array of RFID numbers. If
+   the RFID number in the request is located in the array, it removes it; assuming
+   that the person is exiting the room. If it is not located in array it add the value
+   assuming that the person is entering the room.
+   POST API JSON layout
+   {
+       "Room_Number": "1",
+       "Floor": "1",
+       "Rfid": "1"
+   }
+   The value 1 is a placeholder for any similar number.
+   

@@ -30,6 +30,12 @@ router.get('/', (req, res) => {
 //@route POST api/thermaldata
 //@desc  POST thermal data to mongo
 //@access Public
+/************************************ 
+ * Function needs an update, originally used to seed database
+ * and provide data update services. Redundant now. 
+ * New version should only update room with occupancy values.
+ * HIGH on priority list. 
+*/
 router.post('/', (req, res) => {
     if(req.body.CreateNew == "1"){
     const newThermalData = new Thermal({

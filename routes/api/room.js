@@ -23,8 +23,8 @@ router.post('/add', (req, res) => {
     })
 });
 
-/* ***********************
-   This is a test utility
+/* *************************************************
+   This is a test utility, for seeding room database
 */
 router.post('/addfirst', (req, res) => {
     const newRoom = new Room({

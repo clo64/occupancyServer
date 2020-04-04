@@ -29,6 +29,6 @@ API JSON Layout:
 	"Floor": "1",
 	"NumberOccupants": "4",
 	"All": "0",
-    "CreateNew": "0"
-}
+   "CreateNew": "0"
+   }
    

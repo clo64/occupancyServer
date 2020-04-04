@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 //Create Rfid Schema
 const RfidSchema = new Schema({
-    RoomNumber: {
+    Room_Number: {
         type: String
     },
     Floor: {
