@@ -35,6 +35,8 @@ router.get('/', (req, res) => {
  * and provide data update services. Redundant now. 
  * New version should only update room with occupancy values.
  * HIGH on priority list. 
+ * 
+ * Offloading this updat to the room database object... Work in progress..? New branch -> for sure!
 */
 router.post('/', (req, res) => {
     if(req.body.CreateNew == "1"){
@@ -46,7 +48,7 @@ router.post('/', (req, res) => {
     newThermalData.save().then(item => res.json(item));
     }
     else{
-    Thermal.updateOne({RoomNumber: req.body.Room_Number, Floor: req.body.Floor},{
+    Thermal.updateOne({Room_Number: req.body.Room_Number, Floor: req.body.Floor},{
         Number_Occupants: req.body.Number_Occupants
     }).then(therm => res.json(therm))
     }
