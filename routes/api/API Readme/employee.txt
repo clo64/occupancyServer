@@ -1,0 +1,30 @@
+How to use the employee API:
+
+1. Employee API is used to add or remove an employee. Duplicate employee
+   names are allowed; the RFID is used as key value, and therefore Duplicate
+   RFID values are NOT allowed.
+
+   add employee API location: /api/employee/add
+
+    add POST API JSON layout:
+    {
+        "Employee_Name": "Name Here",
+        "Floor_Authorization": "1",   Future release should be an array!!
+        "Room_Authorication": "1",    Future release should be an array!!
+        "RFID_Number": "12345"
+    }
+
+    If employee with RFID tag already exists expect JSON response:
+    "RFID already assigned"
+
+    If employee with no matching RFID tag, new employee record will be created
+
+2. Remove employee requires only the RFID number associated with tha
+   employee to remove the entire record.
+
+   remove employee API location: /api/employee/remove
+
+   remove POST API JSON layout:
+   {
+       "RFID_Number": "12345"
+   }

@@ -1,10 +1,11 @@
 How to use the room API:
-API JSON Layout:
 
 1. Acepts POST to create a room. Must send Room_Number, Floor and preferably 
    an empty Occupant_RFID array. A different API will be used to populate 
    the array.
+
    API location /api/room/add
+   
    POST API JSON Layout
    {
        "Room_Number": "1",

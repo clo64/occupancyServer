@@ -1,5 +1,4 @@
 How to use the thermal data API:
-API JSON Layout:
 
 1. Two methods to GET thermal data. 
    You can get all therma data by 
@@ -8,13 +7,16 @@ API JSON Layout:
    You can get the thermal data for a particular room on a Floor
    by sending the above json format specifying the room# and floor#
    of interest.
+
+   thermal data API location: /api/thermaldata
+
    GET API JSON layout
    {
-	"Room_Number": "3",
-	"Floor": "1",
-	"Number_Occupants": "4",
-	"All": "0",
-    "CreateNew": "0"
+	   "Room_Number": "3",
+	   "Floor": "1",
+	   "Number_Occupants": "4",
+	   "All": "0",
+      "CreateNew": "0"
    }
    Room not found returns: "No room, or floor match"
 
@@ -23,12 +25,15 @@ API JSON Layout:
    CreateNew field should == "1". Otherwise send the data field 
    that you would like to update for the specified Room number and 
    floor combination.
+
+   thermal data API location: /api/thermaldata
+
    POST API JSON Layout
    {
-	"Room_Number": "3",
-	"Floor": "1",
-	"Number_Occupants": "4",
-	"All": "0",
-   "CreateNew": "0"
+	   "Room_Number": "3",
+	   "Floor": "1",
+	   "Number_Occupants": "4",
+	   "All": "0",
+      "CreateNew": "0"
    }
    
