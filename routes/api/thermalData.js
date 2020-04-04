@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 //Import Thermal Data Model
-const Thermal = require('../../models/Thermal');
+const Room = require('../../models/Room');
+
 
 //@route GET api/thermaldata
 //@desc  Show us thermal data for a floor and room
@@ -10,11 +11,11 @@ const Thermal = require('../../models/Thermal');
 router.get('/', (req, res) => {
     //Fetch all current thermal data
     if(req.body.All == "1"){
-    Thermal.find()
+    Room.find()
         .then(thermalData => res.json(thermalData))
     }
     else{
-        Thermal.find({Room_Number: req.body.Room_Number, Floor: req.body.Floor})
+        Room.find({Room_Number: req.body.Room_Number, Floor: req.body.Floor})
         .then(thermalData => 
             {
                 if(!thermalData.length){
@@ -26,6 +27,7 @@ router.get('/', (req, res) => {
             })
         }
     });
+    
 
 //@route POST api/thermaldata
 //@desc  POST thermal data to mongo
@@ -39,19 +41,9 @@ router.get('/', (req, res) => {
  * Offloading this updat to the room database object... Work in progress..? New branch -> for sure!
 */
 router.post('/', (req, res) => {
-    if(req.body.CreateNew == "1"){
-    const newThermalData = new Thermal({
-        Room_Number: req.body.RoomNumber,
-        Floor: req.body.Floor,
-        Number_Occupants: req.body.NumberOccupants
-    })
-    newThermalData.save().then(item => res.json(item));
-    }
-    else{
-    Thermal.updateOne({Room_Number: req.body.Room_Number, Floor: req.body.Floor},{
-        Number_Occupants: req.body.Number_Occupants
+    Room.updateOne({Room_Number: req.body.Room_Number, Floor: req.body.Floor},{
+        Thermal_Occupants: req.body.Thermal_Occupants
     }).then(therm => res.json(therm))
-    }
 });
 
 module.exports = router;

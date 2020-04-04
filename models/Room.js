@@ -11,6 +11,9 @@ const RoomSchema = new Schema({
     },
     Occupant_RFID: {
         type: Array 
+    },
+    Thermal_Occupants: {
+        type: String
     }
 });
 

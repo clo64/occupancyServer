@@ -14,9 +14,8 @@ How to use the thermal data API:
    {
 	   "Room_Number": "3",
 	   "Floor": "1",
-	   "Number_Occupants": "4",
-	   "All": "0",
-      "CreateNew": "0"
+	   "Thermal_Occupants": "4",
+	   "All": "0"
    }
    Room not found returns: "No room, or floor match"
 
@@ -32,8 +31,7 @@ How to use the thermal data API:
    {
 	   "Room_Number": "3",
 	   "Floor": "1",
-	   "Number_Occupants": "4",
-	   "All": "0",
-      "CreateNew": "0"
+	   "Thermal_Occupants": "4",
+	   "All": "0"
    }
    
