@@ -10,6 +10,7 @@ How to use the room API:
    {
        "Room_Number": "1",
        "Floor": "1",
+       "Thermal_Occupants": "1",
        "Occupant_RFID": []
    }
    If a room and floor number already exist, expect JSON response: "Room already exists"
