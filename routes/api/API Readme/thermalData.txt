@@ -12,7 +12,7 @@ How to use the thermal data API:
 
    GET API JSON layout
    {
-	   "Room_Number": "3",
+	   "Room_Number": "1",
 	   "Floor": "1",
 	   "Thermal_Occupants": "4",
 	   "All": "0"

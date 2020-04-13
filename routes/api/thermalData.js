@@ -4,7 +4,6 @@ const router = express.Router();
 //Import Thermal Data Model
 const Room = require('../../models/Room');
 
-
 //@route GET api/thermaldata
 //@desc  Show us thermal data for a floor and room
 //@access Public
@@ -28,7 +27,6 @@ router.get('/', (req, res) => {
         }
     });
     
-
 //@route POST api/thermaldata
 //@desc  POST thermal data to mongo
 //@access Public
