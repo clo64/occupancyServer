@@ -11,18 +11,17 @@ const Room = require('../../models/Room');
 //@desc Receive RFID Update
 //@access Public
 router.post('/', (req, res) => {
-    Room.find({Room_Number: req.body.Room_Number, Floor: req.body.Floor}).then(roomData => {
+    Room.find({Room_Number: req.body.Room_Number, Floor: req.body.Floor})
+    .then(roomData => {
         const roomControl = new RoomController();
         const requestData = req.body;
         if(roomControl.isRfidInRoom(req.body.Rfid, roomData)){
-            console.log(roomControl.isRfidInRoom(req.body.Rfid, roomData));
             let updatedOccupantRfidArray = roomControl.removeElementFromRfidArray(req.body, roomData, Room);
             roomControl.writeEditedRfidArrayToDatabase(req.body, updatedOccupantRfidArray, Room)
             .then(res.json("Person exited room"));
         } else {
             roomControl.isRfidAssigned(requestData, Employee)
             .then(rfidValidityFlag => {
-                console.log(rfidValidityFlag);
                 if(rfidValidityFlag == 'invalid') {
                  res.json("RFID Not Assigned");
                  throw new Error("RFID Not Assigned");

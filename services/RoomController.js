@@ -31,10 +31,12 @@ isRfidAssigned(requestData, Employee){
                 return 'valid';
      }).catch(error => { return 'invalid'});
 }
+//Note to self -> made this way harder than necessary. Try to find a solution 
+//that uses single line search, or use mongo search instead of this brute force
+//approach.
 checkIfAuthorized(requestData, Employee){
     return Employee.find({RFID_Number: requestData.Rfid})
     .then(employeeData => {
-        console.log(employeeData[0].Floor_Authorization);
         for(let i = 0; i < employeeData[0].Floor_Authorization.length; i++){     
             if(employeeData[0].Floor_Authorization[i] == requestData.Floor){
                 for(let j = 0; j < employeeData[0].Room_Authorization.length; j++){
@@ -49,7 +51,6 @@ checkIfAuthorized(requestData, Employee){
 }
 addRfidToRoomArray(roomData, requestData, Room){
     roomData[0].Occupant_RFID.push(requestData.Rfid);
-    console.log(roomData[0].Occupant_RFID);
     return Room.findOneAndUpdate({Room_Number: requestData.Room_Number, Floor: requestData.Floor}, {Occupant_RFID: roomData[0].Occupant_RFID});
 }
 }

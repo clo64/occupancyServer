@@ -16,4 +16,20 @@ How to use the rfid data API:
        "Rfid": "1"         //Inconsistent use of Rfid identifier, update this use case later*
    }
    The value 1 is a placeholder for any similar number.
+
+Changes made to interaction/reaction of rfidData post. The module has been updated
+to support validation of the incoming RFID tag.
+The rffiData module will now validate the inbound RFID tage number coming in through the POST
+api route. First, it will check if an RFID tage number already exists in the particular room array.
+If it does, no validation necessary, simplly remove the RFID number from the array; as someone is 
+leaving the room.
+If the RFID number is NOT already in the room's rfid array, the module goes through the following
+steps and responses:
+
+If the RFID number is not assigned to an employee, json response:       "RFID Not Assigned"
+
+If the RFID number is assigned to an employee, but not authorized to 
+enter the room in question:                                             "Not authorized"
+
+If the RFID number is assigned to an employee, and authorized to enter: "Rfid added"
    
