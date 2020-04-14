@@ -9,7 +9,7 @@ const multer = require('multer');
 
 const storage = multer.diskStorage({
     destination: function (req, res, cb) {
-        cb(null, 'uploads/')
+        cb(null, 'public/')
     },
     filename: function(req, file, cb) {
         cb(null, 'thermal.jpeg')
@@ -24,7 +24,7 @@ const app = express();
 app.use(bodyParser.json());
 
 //Serve our static thermal image
-app.use(express.static('uploads'));
+app.use(express.static('public'));
 
 //DB config
 const db = require('./config/keys').mongoURI;
