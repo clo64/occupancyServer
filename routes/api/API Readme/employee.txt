@@ -9,8 +9,8 @@ How to use the employee API:
     add POST API JSON layout:
     {
         "Employee_Name": "Name Here",
-        "Floor_Authorization": "1",   Future release should be an array!!
-        "Room_Authorication": "1",    Future release should be an array!!
+        "Floor_Authorization": ["1"],   Converted to arrauy
+        "Room_Authorization": ["1"],    Converted to array
         "RFID_Number": "12345"
     }
 

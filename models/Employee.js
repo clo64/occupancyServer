@@ -7,10 +7,10 @@ const EmployeeSchema = new Schema({
         type: String
     },
     Floor_Authorization: {
-        type: String
+        type: Array
     },
     Room_Authorization: {
-        type: String
+        type: Array
     },
     RFID_Number: {
         type: String
