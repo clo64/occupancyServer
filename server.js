@@ -6,6 +6,8 @@ const Rfid = require('./routes/api/rfidData');
 const Employee = require('./routes/api/employee');
 const Rooms = require('./routes/api/room');
 const multer = require('multer');
+//Attempt to fix heroku static file access problem
+process.env.PWD = process.cwd()
 
 const storage = multer.diskStorage({
     destination: function (req, res, cb) {
@@ -24,7 +26,7 @@ const app = express();
 app.use(bodyParser.json());
 
 //Serve our static thermal image
-app.use(express.static('public'));
+app.use('/public', express.static(process.env.PWD + '/public'));
 
 //DB config
 const db = require('./config/keys').mongoURI;
