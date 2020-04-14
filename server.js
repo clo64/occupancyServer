@@ -5,11 +5,26 @@ const Thermal = require('./routes/api/thermalData');
 const Rfid = require('./routes/api/rfidData');
 const Employee = require('./routes/api/employee');
 const Rooms = require('./routes/api/room');
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+    destination: function (req, res, cb) {
+        cb(null, 'uploads/')
+    },
+    filename: function(req, file, cb) {
+        cb(null, 'thermal.jpeg')
+    }
+});
+
+const upload = multer({ storage: storage });
 
 const app = express();
 
 //BodyParser
 app.use(bodyParser.json());
+
+//Serve our static thermal image
+app.use(express.static('uploads'));
 
 //DB config
 const db = require('./config/keys').mongoURI;
@@ -25,6 +40,13 @@ app.use('/api/rfiddata', Rfid);
 app.use('/api/employee', Employee);
 app.use('/api/room', Rooms);
 
-const port = process.env.PORT || 6000;
+//@route POST api/thermaldata/image
+//@desac POST thermal data image to server
+//@access Public -> Private in future releases
+app.post('/api/thermaldata/image', upload.single('image'), (req, res) => {
+    res.json("Got an image");
+});
+
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server started on port ${port}`));

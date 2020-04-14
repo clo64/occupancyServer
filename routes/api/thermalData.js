@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
+
 //Import Thermal Data Model
 const Room = require('../../models/Room');
 
@@ -31,12 +32,7 @@ router.get('/', (req, res) => {
 //@desc  POST thermal data to mongo
 //@access Public
 /************************************ 
- * Function needs an update, originally used to seed database
- * and provide data update services. Redundant now. 
- * New version should only update room with occupancy values.
- * HIGH on priority list. 
- * 
- * Offloading this updat to the room database object... Work in progress..? New branch -> for sure!
+ * Updates only the thermal occupants
 */
 router.post('/', (req, res) => {
     Room.updateOne({Room_Number: req.body.Room_Number, Floor: req.body.Floor},{
@@ -45,3 +41,4 @@ router.post('/', (req, res) => {
 });
 
 module.exports = router;
+

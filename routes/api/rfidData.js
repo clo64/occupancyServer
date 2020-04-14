@@ -36,8 +36,7 @@ router.post('/', (req, res) => {
                     else{
                         res.json("Not authorized");
                     }
-                });
-                
+                });       
             }).catch(err => { console.log(err) });
         }
     });
