@@ -1,0 +1,6 @@
+An image can be transmitted to the server. This image transfer feature is accessed
+through the POST api route: /api/thermaldata/image
+It must be sent as form-data with the key: image
+
+Currently the POST and handler code for this feature are in the server.js file. 
+In future releases this should be moved to the thermalData.js route file.

@@ -42,6 +42,7 @@ app.use('/api/rfiddata', Rfid);
 app.use('/api/employee', Employee);
 app.use('/api/room', Rooms);
 
+//TODO - relocate image handler features to the thermalData.js file
 //@route POST api/thermaldata/image
 //@desac POST thermal data image to server
 //@access Public -> Private in future releases
