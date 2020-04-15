@@ -20,7 +20,7 @@ const OccupancyNav = (props) => {
   const toggle = () => setIsOpen(!isOpen);
 
   let state = {
-      alertFlag: "0"
+      alertFlag: "1"
   }
   function alert(alertFlag){
       if(alertFlag == "1"){
@@ -33,7 +33,6 @@ const OccupancyNav = (props) => {
   return (
     <div>
       <Navbar color="light" light expand="md">
-        <NavLink href="/">Home</NavLink>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
@@ -53,7 +52,9 @@ const OccupancyNav = (props) => {
 }
 
 const alertLinkStyle = {
-    color: '#FF0000'
+    color: '#FFFFFF',
+    backgroundColor: '#f44336',
+    borderRadius: '10px'
 }
 
 export default OccupancyNav;
