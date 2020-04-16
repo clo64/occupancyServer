@@ -1,7 +1,15 @@
-import React from 'react';
+//import React from 'react';
+import React, { Component } from 'react'
 import { Table } from 'reactstrap';
 
-const EmployeeTable = (props) => {
+export class EmployeeTable extends Component {
+  constructor(){
+      super();
+      this.state = {
+          alertFlag: "0"
+      }
+  }
+  render(){
   return (
     <Table striped>
       <thead>
@@ -34,6 +42,7 @@ const EmployeeTable = (props) => {
       </tbody>
     </Table>
   );
+}
 }
 
 export default EmployeeTable;

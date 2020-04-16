@@ -16,7 +16,6 @@ class App extends Component {
     <Router>
     <div className="App">
       <AppNavbar SendAlertFlag = {this.state.alertFlag}></AppNavbar>
-      <br/>
       <Route path = "/" exact component={FloorView} />
     </div>
     </Router>

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import FloorPlanSvg from './FloorPlanSvg';
 import ThermalImageCard from './ThermalImageCard';
 import EmployeeTable from './EmployeeTable';
+import FirstFloorOverlay from './FirstFloorOverlay'
 import { Container, Row, Col } from 'reactstrap';
 
 export class FloorView extends Component {
@@ -16,7 +17,7 @@ export class FloorView extends Component {
         <container>
             <Row>
                 <Col>
-                    <p style = { positioned } >Hello</p>
+                    <FirstFloorOverlay></FirstFloorOverlay>
                     <FloorPlanSvg></FloorPlanSvg>
                  </Col>
                  <Col sm='3'>
@@ -35,14 +36,12 @@ export class FloorView extends Component {
     }
 }
 
-const positioned = {
-    position: 'absolute',
-    top: '130px',
-    left: '130px'
-}
-
 const employeeTableOffset = {
     left: '20px'
+}
+
+const upper = {
+    top: '10px'
 }
 
 
