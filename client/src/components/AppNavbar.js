@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+//import React, { useState } from 'react';
+import React, { Component } from 'react'
 import {
   Collapse,
   Navbar,
@@ -14,15 +15,20 @@ import {
   NavbarText
 } from 'reactstrap';
 
-const OccupancyNav = (props) => {
-  const [isOpen, setIsOpen] = useState(false);
 
-  const toggle = () => setIsOpen(!isOpen);
-
-  let state = {
-      alertFlag: "1"
+export class OccupancyNav extends Component {
+  constructor(){
+      super();
+      this.state = {
+          isOpen: false
+      }
+    }
+  toggle() {
+    this.state.isOpen = !this.state.isOpen;
   }
-  function alert(alertFlag){
+  alert(alertFlag){
+    console.log(alertFlag);
+    console.log("Is this called?");
       if(alertFlag == "1"){
         return <NavItem><NavLink style = {alertLinkStyle}>ALERT</NavLink></NavItem>
       }
@@ -30,11 +36,12 @@ const OccupancyNav = (props) => {
           return 
       }
   }
+  render() {
   return (
     <div>
       <Navbar color="light" light expand="md">
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
+        <NavbarToggler onClick={this.toggle()} />
+        <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
               <NavLink>Floor View</NavLink>
@@ -42,7 +49,7 @@ const OccupancyNav = (props) => {
             <NavItem>
               <NavLink>Employees</NavLink>
             </NavItem>
-             {alert(state.alertFlag)}
+             {this.alert(this.props.SendAlertFlag)}
           </Nav>
           <NavbarText>Occupancy Tracker</NavbarText>
         </Collapse>
@@ -50,6 +57,8 @@ const OccupancyNav = (props) => {
     </div>
   );
 }
+}
+
 
 const alertLinkStyle = {
     color: '#FFFFFF',

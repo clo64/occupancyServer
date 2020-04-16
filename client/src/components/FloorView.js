@@ -5,16 +5,22 @@ import EmployeeTable from './EmployeeTable';
 import { Container, Row, Col } from 'reactstrap';
 
 export class FloorView extends Component {
+    constructor(){
+        super();
+        this.state = {
+            alertFlag: "0"
+        }
+    }
     render() {
         return (
         <container>
             <Row>
                 <Col>
-                        <p style = { positioned } >Hello</p>
-                        <FloorPlanSvg></FloorPlanSvg>
+                    <p style = { positioned } >Hello</p>
+                    <FloorPlanSvg></FloorPlanSvg>
                  </Col>
                  <Col sm='3'>
-                        <ThermalImageCard/>
+                    <ThermalImageCard/>
                  </Col>
                  <Col >
                  </Col>
