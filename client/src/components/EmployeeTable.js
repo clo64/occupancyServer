@@ -12,9 +12,8 @@ export class EmployeeTable extends Component {
   renderEmployees (room, index){
     return(
       <tr key={index}>
-        <td>{room.firstName}</td>
-        <td>{room.lastName}</td>
-        <td>{room.RFID}</td>
+        <td>{room.Employee_Name}</td>
+        <td>{room.RFID_Number}</td>
       </tr>
     )
   }
@@ -23,11 +22,10 @@ export class EmployeeTable extends Component {
     <Table striped>
       <thead>
         <tr>
-          <td>First Name</td>
-          <td>Last Name</td>
+          <td>Name Name</td>
           <td>RFID Tag#</td>
         </tr>
-        {this.props.room.map(this.renderEmployees)}
+        {this.props.roomDataPass.map(this.renderEmployees)}
       </thead>
     </Table>
   );

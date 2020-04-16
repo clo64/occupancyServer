@@ -16,42 +16,39 @@ export class FloorView extends Component {
         super();
         this.state = {
             alertFlag: "0",
-            roomOne: [
-                {
-                    firstName: "",
-                    lastName: "",
-                    RFID: "",
-                },
-                {   
-                    firstName: "",
-                    lastName: "",
-                    RFID: ""
-                }
-            ]
+            thermalImageURL: "https://occupancy-detection.herokuapp.com/public/thermal.png",
+            roomData: [{
+                Employee_Name: "",
+                RFID_Number: ""
+            },
+             {
+                Employee_Name: "",
+                RFID_Number: ""
+            }]
         }
     }
     componentDidMount(){
-        setInterval(this.getData, 5000);
+        setInterval(this.getData, 8000);
     }
 
     getData = () => {
         //Let's get outselves some data to refresh, oi!
-        this.setState({
-            alertFlag: "1",
-            roomOne: [
-                {
-                    firstName: "Chuck",
-                    lastName: "Sowen",
-                    RFID: "123",
-                },
-                {   
-                    firstName: "Adam",
-                    lastName: "Novak",
-                    RFID: "789"
-                }
-            ]
-        }
-        );
+        axios({
+            method: 'post',
+            url: 'http://localhost:5000/api/rfiddata/getroomdata',
+            data: {
+                Room_Number: "2",
+                Floor: "1"
+            }
+        }).then((peopleInRoom) => {
+            //console.log(peopleInRoom.data[0].Employee_Name);
+            this.setState({
+                roomData: [...peopleInRoom.data, peopleInRoom.data],
+                thermalImageURL: "https://occupancy-detection.herokuapp.com/public/thermal.png"
+            });
+        })
+        //Also update the Thermal Image card by passing it the URL again.. Going to look choppy?
+        
     }
 
     render() {
@@ -70,7 +67,7 @@ export class FloorView extends Component {
             </Row>
             <Row>
                 <Col style = { employeeTableOffset }>
-                <EmployeeTable room={this.state.roomOne}></EmployeeTable>
+                <EmployeeTable roomDataPass={this.state.roomData}></EmployeeTable>
                 </Col>
             </Row>
         </container>
