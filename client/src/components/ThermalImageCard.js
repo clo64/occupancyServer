@@ -20,7 +20,7 @@ const ThermalImageCard = (props) => {
 };
 
 const positioned = {
-    position: 'absolute',
+    
     top: '58px',
     left: '20px'
 }
