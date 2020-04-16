@@ -24,6 +24,28 @@ export class FloorView extends Component {
             ]
         }
     }
+    componentDidMount(){
+        setInterval(this.getData, 5000);
+    }
+    getData = () => {
+        //Let's get outselves some data to refresh, oi!
+        this.setState({
+            alertFlag: "0",
+            roomOne: [
+                {
+                    firstName: "Chuck",
+                    lastName: "Blowen",
+                    RFID: "123",
+                },
+                {   
+                    firstName: "Adam",
+                    lastName: "Novak",
+                    RFID: "789"
+                }
+            ]
+        }
+        );
+    }
     render() {
         return (
         <container>
