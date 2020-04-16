@@ -42,4 +42,16 @@ router.post('/', (req, res) => {
     });
 });
 
+//@route POST api/rfiddata/getroomdata
+//@desc Receive rfid floor and room to query
+//      which people are in particular room
+router.post('/getroomdata', (req, res) => {
+    Room.find({Room_Number: req.body.Room_Number, Floor: req.body.Floor})
+    .then(roomData => {
+        Employee.find().where("RFID_Number").in(roomData[0].Occupant_RFID).exec(function(err, records){
+            res.json(records);
+        })
+    });
+});
+
 module.exports = router;

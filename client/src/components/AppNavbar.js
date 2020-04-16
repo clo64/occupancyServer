@@ -15,7 +15,6 @@ import {
   NavbarText
 } from 'reactstrap';
 
-
 export class OccupancyNav extends Component {
   constructor(){
       super();

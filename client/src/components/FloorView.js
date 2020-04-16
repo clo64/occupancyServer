@@ -1,9 +1,15 @@
+/*
+This is hierarchicaly the "top" level for the floor view.
+State should be updated via the getData function and axios 
+backend requests. 
+*/
 import React, { Component } from 'react'
 import FloorPlanSvg from './FloorPlanSvg';
 import ThermalImageCard from './ThermalImageCard';
 import EmployeeTable from './EmployeeTable';
 import FirstFloorOverlay from './FirstFloorOverlay'
 import { Container, Row, Col } from 'reactstrap';
+const axios = require('axios').default;
 
 export class FloorView extends Component {
     constructor(){
@@ -12,14 +18,14 @@ export class FloorView extends Component {
             alertFlag: "0",
             roomOne: [
                 {
-                    firstName: "Chuck",
-                    lastName: "Owen",
-                    RFID: "123",
+                    firstName: "",
+                    lastName: "",
+                    RFID: "",
                 },
                 {   
-                    firstName: "Adam",
-                    lastName: "Novak",
-                    RFID: "789"
+                    firstName: "",
+                    lastName: "",
+                    RFID: ""
                 }
             ]
         }
@@ -27,14 +33,15 @@ export class FloorView extends Component {
     componentDidMount(){
         setInterval(this.getData, 5000);
     }
+
     getData = () => {
         //Let's get outselves some data to refresh, oi!
         this.setState({
-            alertFlag: "0",
+            alertFlag: "1",
             roomOne: [
                 {
                     firstName: "Chuck",
-                    lastName: "Blowen",
+                    lastName: "Sowen",
                     RFID: "123",
                 },
                 {   
@@ -46,6 +53,7 @@ export class FloorView extends Component {
         }
         );
     }
+
     render() {
         return (
         <container>
