@@ -9,7 +9,19 @@ export class FloorView extends Component {
     constructor(){
         super();
         this.state = {
-            alertFlag: "0"
+            alertFlag: "0",
+            roomOne: [
+                {
+                    firstName: "Chuck",
+                    lastName: "Owen",
+                    RFID: "123",
+                },
+                {   
+                    firstName: "Adam",
+                    lastName: "Novak",
+                    RFID: "789"
+                }
+            ]
         }
     }
     render() {
@@ -28,7 +40,7 @@ export class FloorView extends Component {
             </Row>
             <Row>
                 <Col style = { employeeTableOffset }>
-                <EmployeeTable></EmployeeTable>
+                <EmployeeTable room={this.state.roomOne}></EmployeeTable>
                 </Col>
             </Row>
         </container>
