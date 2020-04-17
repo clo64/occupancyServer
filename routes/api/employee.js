@@ -25,8 +25,6 @@ router.post('/add', (req, res) => {
     });
 });
 
-module.exports = router;
-
 //@route POST api/employee/remove
 //@desc Receive employee information
 //      to remove employee. Done via 
@@ -41,3 +39,6 @@ router.post('/remove', (req, res) => {
         }
     });
 });
+
+module.exports = router;
+

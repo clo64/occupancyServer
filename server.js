@@ -5,6 +5,7 @@ const Thermal = require('./routes/api/thermalData');
 const Rfid = require('./routes/api/rfidData');
 const Employee = require('./routes/api/employee');
 const Rooms = require('./routes/api/room');
+const Alert = require('./routes/api/alert');
 const multer = require('multer');
 //Attempt to fix heroku static file access problem
 process.env.PWD = process.cwd()
@@ -41,6 +42,7 @@ app.use('/api/thermaldata', Thermal);
 app.use('/api/rfiddata', Rfid);
 app.use('/api/employee', Employee);
 app.use('/api/room', Rooms);
+app.use('/api/alert', Alert);
 
 //TODO - relocate image handler features to the thermalData.js file
 //@route POST api/thermaldata/image

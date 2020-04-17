@@ -11,6 +11,9 @@ class App extends Component {
   state = {
     alertFlag: "0"
   }
+  componentDidMount(){
+      setInterval(this.getData, 8000);
+  }
   render() {
   return (
     <Router>
