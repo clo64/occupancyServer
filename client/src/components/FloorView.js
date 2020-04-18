@@ -66,7 +66,13 @@ export class FloorView extends Component {
         console.log(this.state.alertData[0].Alert_Flag);
     }
     clearAlert = () => {
-
+        axios({
+            method: 'post',
+            url: 'http://localhost:5000/api/alert',
+            data: {
+                "Alert_Flag": "0"
+            }
+        })
     }
 
     render() {
