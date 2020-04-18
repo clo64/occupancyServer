@@ -9,14 +9,21 @@ import ThermalImageCard from './ThermalImageCard';
 import EmployeeTable from './EmployeeTable';
 import FirstFloorOverlay from './FirstFloorOverlay'
 import { Container, Row, Col } from 'reactstrap';
+import AlertBar from './AlertBar';
 const axios = require('axios').default;
 
 export class FloorView extends Component {
     constructor(){
         super();
         this.state = {
-            alertFlag: "0",
             thermalImageURL: "https://occupancy-detection.herokuapp.com/public/thermal.png",
+            alertData: [{
+                Alert_Type: "RFID",
+                RFID_Number: "123",
+                Floor: "1",
+                Room_Number: "1"
+            }
+            ],
             roomData: [{
                 Employee_Name: "",
                 RFID_Number: ""
@@ -48,7 +55,18 @@ export class FloorView extends Component {
             });
         })
         //Also update the Thermal Image card by passing it the URL again.. Going to look choppy?
-        
+        axios({
+            method: 'get',
+            url: 'http://localhost:5000/api/alert'
+        }).then((alertRes) => {
+            this.setState({
+                alertData: [alertRes.data]
+            })
+        });
+        console.log(this.state.alertData[0].Alert_Flag);
+    }
+    clearAlert = () => {
+
     }
 
     render() {
@@ -60,13 +78,14 @@ export class FloorView extends Component {
                     <FloorPlanSvg></FloorPlanSvg>
                  </Col>
                  <Col sm='3'>
-                    <ThermalImageCard/>
+                    <ThermalImageCard alertDataThermalCard={this.state.alertData}/>
                  </Col>
                  <Col >
                  </Col>
             </Row>
             <Row>
                 <Col style = { employeeTableOffset }>
+                <AlertBar alertDataBarPass={this.state.alertData}></AlertBar>
                 <EmployeeTable roomDataPass={this.state.roomData}></EmployeeTable>
                 </Col>
             </Row>

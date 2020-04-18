@@ -1,5 +1,6 @@
 //import React from 'react';
 import React, { Component } from 'react'
+import AlertButton from './AlertButton';
 import {
   Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button
@@ -20,6 +21,9 @@ export class ThermalCard extends Component {
     const imageURL = `https://occupancy-detection.herokuapp.com/public/thermal.png?t=${timestamp}`
     return <CardImg top width="100%" src={imageURL} alt="Card image cap" />
   }
+  trackingIdent(num){
+    return 
+  }
   render() {
   return (
     <div>
@@ -29,6 +33,7 @@ export class ThermalCard extends Component {
           <CardTitle>Number of Occupants in here maybe</CardTitle>
           <CardSubtitle></CardSubtitle>
           <CardText></CardText>
+          <AlertButton alertDataClearButton={this.props.alertDataThermalCard}></AlertButton>
         </CardBody>
       </Card>
     </div>

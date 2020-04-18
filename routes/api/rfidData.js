@@ -6,6 +6,7 @@ const RoomController = require('../../services/RoomController');
 //Import RFID model
 const Employee = require('../../models/Employee');
 const Room = require('../../models/Room');
+const Alert = require('../../models/Alert');
 
 //@route POST api/rfiddata
 //@desc Receive RFID Update
@@ -34,6 +35,9 @@ router.post('/', (req, res) => {
                         roomControl.addRfidToRoomArray(roomData, requestData, Room).then(res.json("Rfid added"));
                     }
                     else{
+                        //Here, we create an RFID alert flag
+                        Alert.findOneAndUpdate({Alert_System_Key: "1"}, {Alert_Flag: "1", Alert_Type: "RFID", RFID_Number: requestData.Rfid, Floor: requestData.Floor, Room_Number: requestData.Room_Number}).then((handle) => {     
+                        });
                         res.json("Not authorized");
                     }
                 });       

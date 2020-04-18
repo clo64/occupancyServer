@@ -1,0 +1,16 @@
+How to use the alert API
+
+1. Sending a post to the alert API will update a single record. Therefore,
+   at this time, multiple alerts are not supported.
+
+   alert API location: /api/alert
+
+   alert POST API JSON laout:
+
+    {
+       "Alert_Flag": "1",
+       "Alert_Type": "RFID",
+       "RFID_Number": "123",
+       "Floor": "1",
+       "Room_Number": "1"
+  }

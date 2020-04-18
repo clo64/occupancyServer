@@ -15,6 +15,13 @@ router.post('/', (req, res) => {
     });
 });
 
+//@route GET api/alert
+router.get('/', (req, res) => {
+    Alert.findOne({Alert_System_Key: "1"}).then(result => {
+        res.json(result);
+    })
+})
+
 //Seed post, only used when once
 //@route POST api/alert/first
 router.post('/first', (req, res) => {
