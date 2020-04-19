@@ -7,10 +7,10 @@ How to use the alert API
 
    alert POST API JSON laout:
 
-    {
+{
        "Alert_Flag": "1",
        "Alert_Type": "RFID",
        "RFID_Number": "123",
        "Floor": "1",
        "Room_Number": "1"
-  }
+}
