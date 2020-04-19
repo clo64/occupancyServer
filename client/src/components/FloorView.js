@@ -42,9 +42,10 @@ export class FloorView extends Component {
         //Let's get outselves some data to refresh, oi!
         axios({
             method: 'post',
-            url: 'http://localhost:5000/api/rfiddata/getroomdata',
+            //http://localhost:5000/api/rfiddata/getroomdata
+            url: 'https://occupancy-detection.herokuapp.com/api/rfiddata/getroomdata',
             data: {
-                Room_Number: "2",
+                Room_Number: "1",
                 Floor: "1"
             }
         }).then((peopleInRoom) => {
@@ -57,7 +58,8 @@ export class FloorView extends Component {
         //Also update the Thermal Image card by passing it the URL again.. Going to look choppy?
         axios({
             method: 'get',
-            url: 'http://localhost:5000/api/alert'
+            //http://localhost:5000/api/alert
+            url: 'https://occupancy-detection.herokuapp.com/api/alert'
         }).then((alertRes) => {
             this.setState({
                 alertData: [alertRes.data]
@@ -65,16 +67,7 @@ export class FloorView extends Component {
         });
         console.log(this.state.alertData[0].Alert_Flag);
     }
-    clearAlert = () => {
-        axios({
-            method: 'post',
-            url: 'http://localhost:5000/api/alert',
-            data: {
-                "Alert_Flag": "0"
-            }
-        })
-    }
-
+   
     render() {
         return (
         <container>

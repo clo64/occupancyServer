@@ -14,7 +14,7 @@ export class ThermalCard extends Component {
     }
   }
   componentDidMount(){
-    setInterval(this.forceUpdate(), 5000);
+    setInterval(this.forceUpdate(), 4000);
 }
   refreshImage(){
     const timestamp = Date.now();

@@ -17,7 +17,8 @@ export class AlertButton extends Component {
     clearAlert() {
         axios({
             method: 'post',
-            url: 'http://localhost:5000/api/alert',
+            //http://localhost:5000/api/alert
+            url: 'http://occupancy-detection.herokuapp.com/api/alert',
             data: {
                 "Alert_Flag": "0"
             }
