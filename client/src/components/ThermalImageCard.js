@@ -18,7 +18,7 @@ export class ThermalCard extends Component {
 }
   refreshImage(){
     const timestamp = Date.now();
-    const imageURL = `https://occupancy-detection.herokuapp.com/public/thermal.png?t=${timestamp}`
+    const imageURL = `http://occupancy-detection.herokuapp.com/public/thermal.png?t=${timestamp}`
     return <CardImg top width="100%" src={imageURL} alt="Card image cap" />
   }
   trackingIdent(num){
