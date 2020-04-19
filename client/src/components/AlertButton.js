@@ -18,13 +18,13 @@ export class AlertButton extends Component {
         axios({
             method: 'post',
             //http://localhost:5000/api/alert
-            url: 'http://occupancy-detection.herokuapp.com/api/alert',
+            url: 'https://occupancy-detection.herokuapp.com/api/alert',
             data: {
                 "Alert_Flag": "0"
             }
         });
-        this.props.alertDataClearButton[0].Alert_Flag = "0";
-        this.forceUpdate();
+        //this.props.alertDataClearButton[0].Alert_Flag = "0";
+        //this.forceUpdate();
     }
     render() {
         return (

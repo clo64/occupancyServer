@@ -16,7 +16,7 @@ export class FloorView extends Component {
     constructor(){
         super();
         this.state = {
-            thermalImageURL: "http://occupancy-detection.herokuapp.com/public/thermal.png",
+            thermalImageURL: "https://occupancy-detection.herokuapp.com/public/thermal.png",
             alertData: [{
                 Alert_Type: "RFID",
                 RFID_Number: "123",
@@ -43,7 +43,7 @@ export class FloorView extends Component {
         axios({
             method: 'post',
             //http://localhost:5000/api/rfiddata/getroomdata
-            url: 'http://occupancy-detection.herokuapp.com/api/rfiddata/getroomdata',
+            url: 'https://occupancy-detection.herokuapp.com/api/rfiddata/getroomdata',
             data: {
                 Room_Number: "1",
                 Floor: "1"
@@ -52,14 +52,14 @@ export class FloorView extends Component {
             //console.log(peopleInRoom.data[0].Employee_Name);
             this.setState({
                 roomData: [...peopleInRoom.data, peopleInRoom.data],
-                thermalImageURL: "http://occupancy-detection.herokuapp.com/public/thermal.png"
+                thermalImageURL: "https://occupancy-detection.herokuapp.com/public/thermal.png"
             });
         })
         //Also update the Thermal Image card by passing it the URL again.. Going to look choppy?
         axios({
             method: 'get',
             //http://localhost:5000/api/alert
-            url: 'http://occupancy-detection.herokuapp.com/api/alert'
+            url: 'https://occupancy-detection.herokuapp.com/api/alert'
         }).then((alertRes) => {
             this.setState({
                 alertData: [alertRes.data]
