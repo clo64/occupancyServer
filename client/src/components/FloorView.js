@@ -19,6 +19,7 @@ export class FloorView extends Component {
             thermalImageURL: "https://occupancy-detection.herokuapp.com/public/thermal.png",
             thermalOccupantNumber: "0",
             alertData: [{
+                Alert_Flag: "0",
                 Alert_Type: "RFID",
                 RFID_Number: "123",
                 Floor: "1",
@@ -81,13 +82,13 @@ export class FloorView extends Component {
         //console.log(this.state.alertData[0].Alert_Flag);
         console.log(this.state.thermalOccupantNumber);
     }
-   
+    
     render() {
         return (
         <container>
             <Row>
                 <Col>
-                    <FirstFloorOverlay></FirstFloorOverlay>
+                    <FirstFloorOverlay alertDataButtonPass={this.state.alertData}></FirstFloorOverlay>
                     <FloorPlanSvg></FloorPlanSvg>
                  </Col>
                  <Col sm='3'>
@@ -114,8 +115,5 @@ const employeeTableOffset = {
 const upper = {
     top: '10px'
 }
-
-
-
 
 export default FloorView

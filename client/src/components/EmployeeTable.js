@@ -22,6 +22,9 @@ export class EmployeeTable extends Component {
     <Table striped>
       <thead>
         <tr>
+          <td>Room: 1</td>
+        </tr>
+        <tr>
           <td>Name Name</td>
           <td>RFID Tag#</td>
         </tr>
