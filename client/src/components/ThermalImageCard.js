@@ -30,7 +30,7 @@ export class ThermalCard extends Component {
       <Card style={positioned}>
         {this.refreshImage()}
         <CardBody>
-          <CardTitle>Number of Occupants:</CardTitle>
+          <CardTitle>Thermal occupants: {this.props.thermalOccupantPass}</CardTitle>
           <CardSubtitle></CardSubtitle>
           <CardText></CardText>
           <AlertButton alertDataClearButton={this.props.alertDataThermalCard}></AlertButton>

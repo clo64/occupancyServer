@@ -8,7 +8,7 @@ const Room = require('../../models/Room');
 //@route GET api/thermaldata
 //@desc  Show us thermal data for a floor and room
 //@access Public
-router.get('/', (req, res) => {
+router.post('/', (req, res) => {
     //Fetch all current thermal data
     if(req.body.All == "1"){
     Room.find()
