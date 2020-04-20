@@ -34,7 +34,7 @@ router.post('/', (req, res) => {
 /************************************ 
  * Updates only the thermal occupants
 */
-router.post('/', (req, res) => {
+router.post('/thermalupdate', (req, res) => {
     Room.updateOne({Room_Number: req.body.Room_Number, Floor: req.body.Floor},{
         Thermal_Occupants: req.body.Thermal_Occupants
     }).then(therm => res.json(therm))
